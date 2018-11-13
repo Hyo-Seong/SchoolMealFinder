@@ -13,7 +13,7 @@
         <TextBox x:Name="idTb" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Margin="250,0,0,170" FontSize="30" VerticalAlignment="Center" Width="400"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,0,0,000" TextWrapping="Wrap" Text="PW" FontSize="30" VerticalAlignment="Center"/>
         <PasswordBox x:Name="pwPb" HorizontalAlignment="Left" Height="50" Margin="250,0,0,0" FontSize="30" VerticalAlignment="Center" Width="400"/>
-        <Button Content="회원가입" FontSize="30" Margin="283,294,224,112.6" Click="Button_Click"/>
+        <Button Content="회원가입" FontSize="30" Width="200" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,80" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

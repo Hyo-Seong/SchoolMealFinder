@@ -53,21 +53,24 @@ namespace SchoolMealFinder.View
                 MessageBox.Show("아이디 또는 비밀번호를 입력하세요.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            var Comm = MysqlConn.SendQuery("select name from user where id='" + idTb.Text + "' and pw='" + Sha512Hash(pwPb.Password.ToString()) + "'");
-            var MyRead = Comm.ExecuteReader();
+            var MyRead = MysqlConn.ExecuteQuery("select name from user where id='" + idTb.Text + "' and pw='" + Sha512Hash(pwPb.Password.ToString()) + "'");
 
             if (MyRead.Read())
             {
                 userName = MyRead["name"].ToString();
                 MessageBox.Show(userName + "님 환영합니다!", "알림", MessageBoxButton.OK);
+                MyRead.Close();
+                //로그인 성공 이후 로직 구현.
+                InitData();
             }
             else
             {
                 MessageBox.Show("로그인에 실패하였습니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
+                MyRead.Close();
                 return;
             }
 
-            InitData();
+
         }
 
         private void InitData()

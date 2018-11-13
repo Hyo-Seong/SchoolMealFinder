@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SchoolMealFinder.DBConn;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,22 @@ namespace SchoolMealFinder.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if(nameTb.Text == "" || idTb.Text == "" || pwPb.Password == "")
+            {
+                MessageBox.Show("칸을 모두 채워주세요.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
+            var MyRead = MysqlConn.ExecuteQuery("select id from user where id='" + idTb.Text + "'");
+
+            if (MyRead.Read())
+            {
+                MessageBox.Show("이미 존재하는 아이디입니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var a = MysqlConn.ExecuteNonQuery("insert into user(" + nameTb.Text + ", " + idTb.Text + ", " + pwPb.Password + ")");
+            
         }
     }
 }
