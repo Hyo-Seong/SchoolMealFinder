@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SchoolMealFinder.DBConn;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,7 +25,6 @@ namespace SchoolMealFinder.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string sqlStr = ConfigurationManager.AppSettings["DBConn"];
         private string userName = "";
 
         public MainWindow()
@@ -53,10 +53,7 @@ namespace SchoolMealFinder.View
                 MessageBox.Show("아이디 또는 비밀번호를 입력하세요.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            var Conn = new MySqlConnection(sqlStr);
-            Conn.Open();
-
-            var Comm = new MySqlCommand("select name from user where id='" + idTb.Text + "' and pw='" + Sha512Hash(pwPb.Password.ToString()) + "'", Conn);
+            var Comm = MysqlConn.SendQuery("select name from user where id='" + idTb.Text + "' and pw='" + Sha512Hash(pwPb.Password.ToString()) + "'");
             var MyRead = Comm.ExecuteReader();
 
             if (MyRead.Read())
@@ -67,8 +64,20 @@ namespace SchoolMealFinder.View
             else
             {
                 MessageBox.Show("로그인에 실패하였습니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+
+            InitData();
         }
 
+        private void InitData()
+        {
+            // 유저정보 받아오고, 
+        }
+
+        private void registerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterCtrl.Visibility = Visibility.Visible;
+        }
     }
 }

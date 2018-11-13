@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolMealFinder.View"
+        xmlns:ctrl="clr-namespace:SchoolMealFinder.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -12,6 +13,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="150,0,0,000" TextWrapping="Wrap" Text="PW" FontSize="30" VerticalAlignment="Center"/>
         <PasswordBox x:Name="pwPb" HorizontalAlignment="Left" Height="50" Margin="250,0,0,0" FontSize="30" VerticalAlignment="Center" Width="400"/>
         <Button Content="로그인" x:Name="loginBtn" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="30" Margin="210,0,0,100" Click="LoginBtn_Click"/>
-        <Button Content="회원가입" x:Name="registerBtn" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" Margin="300,0,0,100"/>
+        <Button Content="회원가입" x:Name="registerBtn" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" Margin="300,0,0,100" Click="registerBtn_Click"/>
+        <Grid x:Name="RegisterGd">
+            <ctrl:RegisterControl x:Name="RegisterCtrl" Visibility="Collapsed"/>
+        </Grid>
     </Grid>
+
 </Window>
