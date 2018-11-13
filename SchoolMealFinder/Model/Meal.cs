@@ -15,8 +15,37 @@ namespace SchoolMealFinder.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private List<string> menuInfos;
+        private List<string> menuInfos = new List<string>();
+        public List<string> MenuInfos
+        {
+            get => menuInfos;
+            set
+            {
+                menuInfos = value;
+                NotifyPropertyChanged("MenuInfos");
+            }
+        }
 
-        private List<Review>
+        private List<Review> reviews = new List<Review>();
+        public List<Review> Reviews
+        {
+            get => reviews;
+            set
+            {
+                reviews = value;
+                NotifyPropertyChanged("Reviews");
+            }
+        }
+
+        private int mealType;
+        public int MealType
+        {
+            get => mealType;
+            set
+            {
+                mealType = value;
+                NotifyPropertyChanged("MealType");
+            }
+        }
     }
 }

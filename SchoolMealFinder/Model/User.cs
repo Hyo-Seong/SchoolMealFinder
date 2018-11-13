@@ -22,6 +22,7 @@ namespace SchoolMealFinder.Model
             set
             {
                 id = value;
+                NotifyPropertyChanged("Id");
             }
         }
 
@@ -32,16 +33,18 @@ namespace SchoolMealFinder.Model
             set
             {
                 name = value;
+                NotifyPropertyChanged("Name");
             }
         }
 
-        private int auth;
+        private int auth = 0; // 0 : 학생. 1 : 관리자
         public int Auth
         {
             get => auth;
             set
             {
                 auth = value;
+                NotifyPropertyChanged("Auth");
             }
         }
 
@@ -52,11 +55,10 @@ namespace SchoolMealFinder.Model
             set
             {
                 schoolIdx = value;
+                NotifyPropertyChanged("SchoolIdx");
 
             }
         }
-
-        private int 
 
     }
 }
