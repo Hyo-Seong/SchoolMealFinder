@@ -1,4 +1,5 @@
 ﻿using SchoolMealFinder.DBConn;
+using SchoolMealFinder.View;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,7 +44,7 @@ namespace SchoolMealFinder.Controls
                 return;
             }
 
-            var a = MysqlConn.ExecuteNonQuery("insert into user(" + nameTb.Text + ", " + idTb.Text + ", " + pwPb.Password + ")");
+            var a = MysqlConn.ExecuteNonQuery("insert into user value('" + nameTb.Text + "', '" + idTb.Text + "', '" + MainWindow.Sha512Hash(pwPb.Password) + "')");
             
         }
     }

@@ -15,6 +15,18 @@ namespace SchoolMealFinder.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private int idx;
+        public int Idx
+        {
+            get => idx;
+            set
+            {
+                idx = value;
+                NotifyPropertyChanged("Idx");
+            }
+        }
+
         private List<string> menuInfos = new List<string>();
         public List<string> MenuInfos
         {
