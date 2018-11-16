@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace SchoolMealFinder.ViewModel
 {
-    class MealViewModel
+    public class MealViewModel
     {
-        public ObservableCollection<Meal> Items { get; } = new ObservableCollection<Meal>();
-
+        public ObservableCollection<Meal> Items { get; set; } = new ObservableCollection<Meal>();
     }
 }

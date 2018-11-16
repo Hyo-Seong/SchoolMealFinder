@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SchoolMealFinder.Model
 {
-    class Meal : INotifyPropertyChanged
+    public class Meal : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
