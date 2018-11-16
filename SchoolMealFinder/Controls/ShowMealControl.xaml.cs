@@ -1,5 +1,8 @@
-﻿using System;
+﻿using SchoolMealFinder.DBConn;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,16 @@ namespace SchoolMealFinder.Controls
         public ShowMealControl()
         {
             InitializeComponent();
+        }
+
+        public void SetTodayMeal()
+        {
+            Debug.WriteLine(DateTime.Now.ToShortDateString());
+            var myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=1;");
+            while (myRead.Read())
+            {
+                Debug.WriteLine(myRead["meal_date"] + " " + myRead["food_info"]);
+            }
         }
     }
 }

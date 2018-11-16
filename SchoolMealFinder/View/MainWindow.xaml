@@ -16,7 +16,9 @@
         <Button Content="회원가입" x:Name="registerBtn" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" Margin="300,0,0,100" Click="registerBtn_Click"/>
         <Grid x:Name="RegisterGd">
             <ctrl:RegisterControl x:Name="RegisterCtrl" Visibility="Collapsed"/>
+            <ctrl:ShowMealControl x:Name="ShowMealCtrl" Visibility="Collapsed"/>
         </Grid>
+        
     </Grid>
 
 </Window>
