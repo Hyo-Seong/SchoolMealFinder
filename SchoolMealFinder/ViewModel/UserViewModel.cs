@@ -11,7 +11,7 @@ namespace SchoolMealFinder.ViewModel
 {
     class UserViewModel
     {
-        public ObservableCollection<User> Items { get; } = new ObservableCollection<User>();
+        public ObservableCollection<User> Items { get; set; } = new ObservableCollection<User>();
 
         public string GetNameById(string id)
         {
