@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using SchoolMealFinder.DBConn;
+using SchoolMealFinder.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -32,7 +33,7 @@ namespace SchoolMealFinder.View
             InitializeComponent();
         }
 
-        private string Sha512Hash(string str)
+        public static string Sha512Hash(string str)
         {
             var sha512 = new SHA512CryptoServiceProvider();
             byte[] resultHash = sha512.ComputeHash(Encoding.Default.GetBytes(str));
@@ -75,7 +76,8 @@ namespace SchoolMealFinder.View
 
         private void InitData()
         {
-            // 유저정보 받아오고, 
+            // 유저정보 받아오고, 밥정보 받아오고
+            ShowMealCtrl.SetTodayMeal();
         }
 
         private void registerBtn_Click(object sender, RoutedEventArgs e)
