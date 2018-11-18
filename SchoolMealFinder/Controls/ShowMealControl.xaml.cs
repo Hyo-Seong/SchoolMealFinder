@@ -1,4 +1,5 @@
 ﻿using SchoolMealFinder.DBConn;
+using SchoolMealFinder.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,9 +33,39 @@ namespace SchoolMealFinder.Controls
         {
             Debug.WriteLine(DateTime.Now.ToShortDateString());
             var myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=1;");
+            string menuString1 = "";
             while (myRead.Read())
             {
-                Debug.WriteLine(myRead["meal_date"] + " " + myRead["food_info"]);
+                menuString1 += myRead["food_info"] + "\n";
+            }
+
+            if(menuString1 != "")
+            {
+                type1Tb.Text = menuString1;
+            }
+
+            myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=2;");
+            string menuString2 = "";
+            while (myRead.Read())
+            {
+                menuString2 += myRead["food_info"] + "\n";
+            }
+
+            if (menuString2 != "")
+            {
+                type2Tb.Text = menuString2;
+            }
+
+            myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=3;");
+            string menuString3 = "";
+            while (myRead.Read())
+            {
+                menuString3 += myRead["food_info"] + "\n";
+            }
+
+            if (menuString3 != "")
+            {
+                type3Tb.Text = menuString3;
             }
         }
     }
