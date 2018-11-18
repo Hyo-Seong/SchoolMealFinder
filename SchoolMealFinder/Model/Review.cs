@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace SchoolMealFinder.Model
 {
-    internal class Review : INotifyPropertyChanged
+    public class Review : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
