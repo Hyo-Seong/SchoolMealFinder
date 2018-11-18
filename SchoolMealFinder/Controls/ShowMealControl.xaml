@@ -23,15 +23,19 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="조식" VerticalAlignment="Center" />
             <TextBlock Grid.Column="0" Grid.Row="1" x:Name="type1Tb" HorizontalAlignment="Center" TextWrapping="Wrap" Text="정보 없음." VerticalAlignment="Center" />
+            <Button Content="등록하기" Click="Enroll_Click" Tag="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" FontSize="20"/>
 
             <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="중식" VerticalAlignment="Center" />
             <TextBlock Grid.Column="1" Grid.Row="1" x:Name="type2Tb" HorizontalAlignment="Center" TextWrapping="Wrap" Text="정보 없음." VerticalAlignment="Center" />
+            <Button Content="등록하기" Click="Enroll_Click" Tag="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" FontSize="20"/>
 
             <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="석식" VerticalAlignment="Center" />
             <TextBlock Grid.Column="2" Grid.Row="1" x:Name="type3Tb" HorizontalAlignment="Center" TextWrapping="Wrap" Text="정보 없음." VerticalAlignment="Center" />
+            <Button Content="등록하기" Click="Enroll_Click" Tag="3" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         </Grid>
     </Grid>
 </UserControl>
