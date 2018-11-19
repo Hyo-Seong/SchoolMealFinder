@@ -68,5 +68,30 @@ namespace SchoolMealFinder.Controls
                 type3Tb.Text = menuString3;
             }
         }
+
+        private void Enroll_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            string temp = "";
+            switch (button.Tag)
+            {
+                case "1":
+                    temp = type1Tb.Text;
+                    break;
+                case "2":
+                    temp = type2Tb.Text;
+                    break;
+                case "3":
+                    temp = type3Tb.Text;
+                    break;
+            }
+            if (temp != "정보없음")
+            {
+                MessageBox.Show("급식이 이미 등록되었습니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            EnrollCtrl.SetMealType(Int32.Parse(button.Tag.ToString()));
+            EnrollCtrl.Visibility = Visibility.Visible;
+        }
     }
 }
