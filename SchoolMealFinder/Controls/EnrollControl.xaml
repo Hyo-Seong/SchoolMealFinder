@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:SchoolMealFinder.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+        <TextBox x:Name="tempTb" HorizontalAlignment="Left" Height="200" Margin="0,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="800"/>
+        <Button Background="Red" FontSize="30" Content="X" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="750,10,0,0" Height="47"/>
+        <Button Content="등록하기" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Margin="0,280,0,-0.4" Height="50" Click="Button_Click_1"/>
+
     </Grid>
 </UserControl>
