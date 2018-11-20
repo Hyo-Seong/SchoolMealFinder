@@ -44,8 +44,25 @@ namespace SchoolMealFinder.Controls
                 return;
             }
 
-            var a = MysqlConn.ExecuteNonQuery("insert into user value('" + nameTb.Text + "', '" + idTb.Text + "', '" + MainWindow.Sha512Hash(pwPb.Password) + "')");
-            
+            int a = MysqlConn.ExecuteNonQuery("insert into user value('" + nameTb.Text + "', '" + idTb.Text + "', '" + MainWindow.Sha512Hash(pwPb.Password) + "')");
+            if(a == 1)
+            {
+                MessageBox.Show("회원가입 성공", "알림", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show("회원가입 실패", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            nameTb.Text = "";
+            idTb.Text = "";
+            pwPb.Password = "";
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

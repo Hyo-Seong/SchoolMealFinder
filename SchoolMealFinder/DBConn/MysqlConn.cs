@@ -22,11 +22,17 @@ namespace SchoolMealFinder.DBConn
 
         public static int ExecuteNonQuery(string query)
         {
-            string sqlStr = ConfigurationManager.AppSettings["DBConn"];
-            MySqlConnection Conn = new MySqlConnection(sqlStr);
-            Conn.Open();
-            var Comm = new MySqlCommand(query, Conn);
-            return Comm.ExecuteNonQuery();
+            try
+            {
+                string sqlStr = ConfigurationManager.AppSettings["DBConn"];
+                MySqlConnection Conn = new MySqlConnection(sqlStr);
+                Conn.Open();
+                var Comm = new MySqlCommand(query, Conn);
+                return Comm.ExecuteNonQuery();
+            } catch
+            {
+                return -1;
+            }
         }
     }
 }

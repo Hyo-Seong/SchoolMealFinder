@@ -31,42 +31,38 @@ namespace SchoolMealFinder.Controls
 
         public void SetTodayMeal()
         {
-            Debug.WriteLine(DateTime.Now.ToShortDateString());
-            var myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=1;");
-            string menuString1 = "";
+            GetMenu(1);
+            GetMenu(2);
+            GetMenu(3);
+        }
+
+        private void GetMenu(int mealType)
+        {
+            var myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=" + mealType +";");
+            string menuString = "";
             while (myRead.Read())
             {
-                menuString1 += myRead["food_info"] + "\n";
+                menuString += myRead["food_info"] + "\n";
             }
 
-            if(menuString1 != "")
+            if(menuString == "")
             {
-                type1Tb.Text = menuString1;
+                return;
             }
 
-            myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=2;");
-            string menuString2 = "";
-            while (myRead.Read())
+            switch (mealType)
             {
-                menuString2 += myRead["food_info"] + "\n";
+                case 1:
+                    type1Tb.Text = menuString;
+                    break;
+                case 2:
+                    type2Tb.Text = menuString;
+                    break;
+                case 3:
+                    type3Tb.Text = menuString;
+                    break;
             }
-
-            if (menuString2 != "")
-            {
-                type2Tb.Text = menuString2;
-            }
-
-            myRead = MysqlConn.ExecuteQuery("select * from meal natural join food where meal_date = '" + DateTime.Now.ToShortDateString() + "' and meal_type=3;");
-            string menuString3 = "";
-            while (myRead.Read())
-            {
-                menuString3 += myRead["food_info"] + "\n";
-            }
-
-            if (menuString3 != "")
-            {
-                type3Tb.Text = menuString3;
-            }
+            return;
         }
 
         private void Enroll_Click(object sender, RoutedEventArgs e)
@@ -85,13 +81,18 @@ namespace SchoolMealFinder.Controls
                     temp = type3Tb.Text;
                     break;
             }
-            if (temp != "정보없음")
+            if (temp != "정보 없음.")
             {
                 MessageBox.Show("급식이 이미 등록되었습니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             EnrollCtrl.SetMealType(Int32.Parse(button.Tag.ToString()));
             EnrollCtrl.Visibility = Visibility.Visible;
+        }
+
+        private void EnrollCtrl_UpdateMeal(int mealType)
+        {
+            GetMenu(mealType);
         }
     }
 }

@@ -61,6 +61,8 @@ namespace SchoolMealFinder.View
                 userName = MyRead["name"].ToString();
                 MessageBox.Show(userName + "님 환영합니다!", "알림", MessageBoxButton.OK);
                 MyRead.Close();
+
+                ShowMealCtrl.Visibility = Visibility.Visible;
                 //로그인 성공 이후 로직 구현.
                 InitData();
             }
