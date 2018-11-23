@@ -66,7 +66,8 @@ namespace SchoolMealFinder.Controls
                 int b = MysqlConn.ExecuteNonQuery("insert into food(food_info, meal_idx) values('" + temp[i] + "', " + mealIdx + ");");
             }
             MessageBox.Show("급식이 등록되었습니다.", "알림", MessageBoxButton.OK);
-            UpdateMeal?.Invoke(mealType);
+			tempTb.Text = "";
+			UpdateMeal?.Invoke(mealType);
             this.Visibility = Visibility.Collapsed;
         }
     }

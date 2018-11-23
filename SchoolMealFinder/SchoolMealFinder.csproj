@@ -89,11 +89,6 @@
       <DependentUpon>ShowMealControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DBConn\MysqlConn.cs" />
-    <Compile Include="Model\Meal.cs" />
-    <Compile Include="Model\Review.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="ViewModel\MealViewModel.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -14,7 +14,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="150,0,0,000" TextWrapping="Wrap" Text="PW" FontSize="30" VerticalAlignment="Center"/>
         <PasswordBox x:Name="pwPb" HorizontalAlignment="Left" Height="50" Margin="250,0,0,0" FontSize="30" VerticalAlignment="Center" Width="400"/>
         <Button Content="회원가입" FontSize="30" Width="200" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,300,86.6" Click="Button_Click"/>
-        <Button Content="뒤로가기" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="300,0,0,86.6" Width="200" Height="60" Click="Button_Click_1"/>
+        <Button Content="뒤로가기" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="300,0,0,86.6" Width="200" Height="60" Click="Button_Click_1"/>
 
     </Grid>
 </UserControl>

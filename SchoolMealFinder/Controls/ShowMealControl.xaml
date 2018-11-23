@@ -12,6 +12,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
+            <TextBlock x:Name="DateTb" HorizontalAlignment="Center" FontSize="45" TextWrapping="Wrap" Text="" TextAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

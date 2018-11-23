@@ -1,5 +1,4 @@
 ﻿using SchoolMealFinder.DBConn;
-using SchoolMealFinder.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,7 +30,8 @@ namespace SchoolMealFinder.Controls
 
         public void SetTodayMeal()
         {
-            GetMenu(1);
+			DateTb.Text = DateTime.Now.ToShortDateString();
+			GetMenu(1);
             GetMenu(2);
             GetMenu(3);
         }

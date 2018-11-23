@@ -1,5 +1,4 @@
-﻿using SchoolMealFinder.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,6 +13,5 @@ namespace SchoolMealFinder
     /// </summary>
     public partial class App : Application
     {
-        public static MealViewModel mealViewModel = new MealViewModel();
     }
 }

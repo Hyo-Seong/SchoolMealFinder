@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using SchoolMealFinder.DBConn;
-using SchoolMealFinder.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
