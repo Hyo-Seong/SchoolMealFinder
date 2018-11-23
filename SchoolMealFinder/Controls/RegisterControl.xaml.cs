@@ -48,6 +48,7 @@ namespace SchoolMealFinder.Controls
             if(a == 1)
             {
                 MessageBox.Show("회원가입 성공", "알림", MessageBoxButton.OK);
+				this.Visibility = Visibility.Collapsed;
             }
             else
             {
